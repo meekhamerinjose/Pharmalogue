@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.pharmalogue">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Blue">
+        <activity
+            android:name="pillapp.viewcontroller.AddActivity"
+            android:label="@string/title_activity_add"
+            android:parentActivityName="pillapp.viewcontroller.PillReminderActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pillapp.viewcontroller.PillReminderActivity" />
+        </activity>
+        <activity
+            android:name="pillapp.viewcontroller.AlertActivity"
+            android:label="@string/title_activity_alert"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="teamqitalach.pillapp.alertactivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="pillapp.viewcontroller.PillReminderActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="pillapp.viewcontroller.PillBoxActivity"
+            android:label="@string/title_activity_edit" />
+        <activity
+            android:name="pillapp.viewcontroller.ScheduleActivity"
+            android:label="@string/title_activity_setting"
+            android:parentActivityName="pillapp.viewcontroller.PillReminderActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pillapp.viewcontroller.PillReminderActivity" />
+        </activity>
+        <activity
+            android:name="pillapp.viewcontroller.EditActivity"
+            android:label="@string/title_activity_edit" />
+        <activity android:name="pillapp.viewcontroller.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="pillapp.viewcontroller.BMIActivity" />
+        <activity android:name="pillapp.viewcontroller.DrugDictionaryActivity" />
+        <activity
+            android:name="pillapp.viewcontroller.DrugDetailActivity"
+            android:label="@string/title_activity_drug_detailctivity"></activity>
+    </application>
+
+</manifest>
