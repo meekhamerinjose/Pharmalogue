@@ -8,20 +8,16 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.WindowManager.LayoutParams;
 
-import java.io.IOException;
-
 /**
  * Utilized the link below as a reference guide:
  * http://wptrafficanalyzer.in/blog/setting-up-alarm-using-alarmmanager-and-waking-up-screen-and-unlocking-keypad-on-alarm-goes-off-in-android/
- * <p>
+ *
  * This is a dialog box that AlertActivity called when it is triggered.
  * It contains three buttons to let the user respond to an alarm.
  */
@@ -44,12 +40,12 @@ public class AlertAlarm extends DialogFragment {
 
         final String pill_name = getActivity().getIntent().getStringExtra("pill_name");
 
-        builder.setMessage("Did you take your " + pill_name + " ?");
+        builder.setMessage("Did you take your "+ pill_name + " ?");
 
         builder.setPositiveButton("I took it", new OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                AlertActivity act = (AlertActivity) getActivity();
+                AlertActivity act = (AlertActivity)getActivity();
                 act.doPositiveClick(pill_name);
                 getActivity().finish();
             }
@@ -59,9 +55,9 @@ public class AlertAlarm extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 /** Exit application on click OK */
-                AlertActivity act = (AlertActivity) getActivity();
+                AlertActivity act = (AlertActivity)getActivity();
                 act.doNeutralClick(pill_name);
-                getActivity().finish();
+                act.finish();
             }
         });
 
@@ -69,38 +65,19 @@ public class AlertAlarm extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 /** Exit application on click OK */
-                AlertActivity act = (AlertActivity) getActivity();
+                AlertActivity act = (AlertActivity)getActivity();
                 act.doNegativeClick();
-                getActivity().finish();
+                act.finish();
             }
         });
 
-        playSound();
+        MediaPlayer.create(getActivity(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)).start();
         return builder.create();
-    }
-
-    private void playSound() {
-        Uri defaultRingtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        MediaPlayer mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource(getActivity(), defaultRingtoneUri);
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_NOTIFICATION);
-            mediaPlayer.prepare();
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    mp.release();
-                }
-            });
-            mediaPlayer.start();
-        } catch (IllegalArgumentException | IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        getActivity().finish();
+        ((AlertActivity)getActivity()).finish();
     }
 }

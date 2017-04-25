@@ -37,6 +37,13 @@ public class AlertActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        boolean launchedFromHistory = getIntent() != null && (getIntent().getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
+        if(launchedFromHistory){
+            Intent returnHistory = new Intent(getBaseContext(), PillReminderActivity.class);
+            startActivity(returnHistory);
+            finish();
+        }
+
         /** Creating an Alert Dialog Window */
         AlertAlarm alert = new AlertAlarm();
 
@@ -109,4 +116,5 @@ public class AlertActivity extends FragmentActivity {
     public void doNegativeClick(){
         finish();
     }
+
 }

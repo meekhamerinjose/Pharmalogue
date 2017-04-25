@@ -216,7 +216,7 @@ public class EditActivity extends AppCompatActivity {
                         if (calendar.before(Calendar.getInstance()))
                             alarm_time += AlarmManager.INTERVAL_DAY * 7;
 
-                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_time,
+                        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, alarm_time,
                                 alarmManager.INTERVAL_DAY * 7, operation);
                     }
                 }
