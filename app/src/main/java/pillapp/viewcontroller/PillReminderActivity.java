@@ -46,7 +46,7 @@ public class PillReminderActivity extends AppCompatActivity implements android.s
 
         tabsviewPager.setAdapter(mTabsAdapter);
 
-        getSupportActionBar().setTitle("Home");
+        getSupportActionBar().setTitle(getString(R.string.app_name));
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);

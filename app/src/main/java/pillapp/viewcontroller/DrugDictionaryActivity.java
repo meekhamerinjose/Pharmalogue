@@ -74,7 +74,7 @@ public class DrugDictionaryActivity extends AppCompatActivity {
             if (params[0].isEmpty()) {
                 return pillBox.getAllDrugs(DrugDictionaryActivity.this);
             } else {
-                return pillBox.getDrugsByBrand(DrugDictionaryActivity.this, params[0]);
+                return pillBox.getDrugsByGeneric(DrugDictionaryActivity.this, params[0]);
             }
         }
 

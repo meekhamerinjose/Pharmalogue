@@ -144,9 +144,9 @@ public class PillBox {
         db.close();
     }
 
-    public List<Drug> getDrugsByBrand(Context c, String brandName) {
+    public List<Drug> getDrugsByGeneric(Context c, String generic) {
         db = new DbHelper(c);
-        List<Drug> drugs = db.getDrugsByBrandName(brandName);
+        List<Drug> drugs = db.getDrugsByGeneric(generic);
         db.close();
         return drugs;
     }

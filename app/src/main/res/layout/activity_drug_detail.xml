@@ -160,5 +160,24 @@
             android:textColor="#212121"
             android:text="some text" />
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#9e9e9e"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:text="Interactions"
+            android:textAllCaps="true"/>
+        <TextView
+            android:id="@+id/drugInteractions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:textColor="#212121"
+            android:text="drugInteractions" />
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

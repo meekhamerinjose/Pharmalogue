@@ -23,6 +23,9 @@ import android.view.WindowManager.LayoutParams;
  */
 
 public class AlertAlarm extends DialogFragment {
+
+    private MediaPlayer mp;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
@@ -33,7 +36,7 @@ public class AlertAlarm extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         /** Setting title for the alert dialog */
-        builder.setTitle("PillApp");
+        builder.setTitle("Pharmalogue");
 
         /** Making it so notification can only go away by pressing the buttons */
         setCancelable(false);
@@ -45,6 +48,7 @@ public class AlertAlarm extends DialogFragment {
         builder.setPositiveButton("I took it", new OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                stopMedia();
                 AlertActivity act = (AlertActivity)getActivity();
                 act.doPositiveClick(pill_name);
                 getActivity().finish();
@@ -54,6 +58,7 @@ public class AlertAlarm extends DialogFragment {
         builder.setNeutralButton("Snooze", new OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                stopMedia();
                 /** Exit application on click OK */
                 AlertActivity act = (AlertActivity)getActivity();
                 act.doNeutralClick(pill_name);
@@ -64,6 +69,7 @@ public class AlertAlarm extends DialogFragment {
         builder.setNegativeButton("I won't take", new OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                stopMedia();
                 /** Exit application on click OK */
                 AlertActivity act = (AlertActivity)getActivity();
                 act.doNegativeClick();
@@ -71,8 +77,18 @@ public class AlertAlarm extends DialogFragment {
             }
         });
 
-        MediaPlayer.create(getActivity(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)).start();
+        mp = MediaPlayer.create(getActivity(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM));
+        mp.start();
+        mp.setLooping(true);
         return builder.create();
+    }
+
+    private void stopMedia() {
+        if (mp != null) {
+            mp.stop();
+            mp.release();
+            mp = null;
+        }
     }
 
     @Override

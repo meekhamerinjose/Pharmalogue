@@ -21,6 +21,7 @@ public class DrugDetailActivity extends AppCompatActivity {
     private TextView drugDosage;
     private TextView drugWarnings;
     private TextView drugSideEffects;
+    private TextView drugInteractions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class DrugDetailActivity extends AppCompatActivity {
         drugDosage = (TextView) findViewById(R.id.drugDosage);
         drugWarnings = (TextView) findViewById(R.id.drugWarnings);
         drugSideEffects = (TextView) findViewById(R.id.drugSideEffects);
+        drugInteractions = (TextView) findViewById(R.id.drugInteractions);
 
         drugGenericName.setText(drug.getDrugGenericName());
         drugBrandName.setText(drug.getDrugBrandName());
@@ -48,6 +50,7 @@ public class DrugDetailActivity extends AppCompatActivity {
         drugDosage.setText(drug.getDrugDosage());
         drugWarnings.setText(drug.getDrugWarnings());
         drugSideEffects.setText(drug.getDrugSideEffects());
+        drugInteractions.setText(drug.getDrugInteractions());
 
         if(getSupportActionBar() != null){
             getSupportActionBar().setTitle(drug.getDrugBrandName());

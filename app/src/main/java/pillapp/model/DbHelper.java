@@ -34,7 +34,7 @@ public class DbHelper extends SQLiteOpenHelper {
     /**
      * Database version
      */
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     /**
      * Table names
@@ -66,6 +66,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_DRUG_DOSAGE = "drugDosage";
     private static final String KEY_DRUG_WARNINGS = "drugWarnings";
     private static final String KEY_DRUG_SIDE_EFFECTS = "drugSideEffects";
+    private static final String KEY_DRUG_INTERACTIONS = "drugInteractions";
 
     /**
      * Alarm table columns, Hour & Minute used by History Table
@@ -108,6 +109,7 @@ public class DbHelper extends SQLiteOpenHelper {
                     + KEY_DRUG_PREGNANCY_CATEGORY + " text,"
                     + KEY_DRUG_DOSAGE + " text,"
                     + KEY_DRUG_WARNINGS + " text,"
+                    + KEY_DRUG_INTERACTIONS + " text,"
                     + KEY_DRUG_SIDE_EFFECTS + " text" + ")";
 
     /**
@@ -203,6 +205,7 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(KEY_DRUG_DOSAGE, drug.getDrugDosage());
         values.put(KEY_DRUG_WARNINGS, drug.getDrugWarnings());
         values.put(KEY_DRUG_SIDE_EFFECTS, drug.getDrugSideEffects());
+        values.put(KEY_DRUG_INTERACTIONS, drug.getDrugInteractions());
 
         long drug_id = db.insert(DRUG_DATABASE_TABLE, null, values);
 
@@ -284,13 +287,13 @@ public class DbHelper extends SQLiteOpenHelper {
 // ############################# get methods ####################################### //
 
 
-    public ArrayList<Drug> getDrugsByBrandName(String pillName) {
+    public ArrayList<Drug> getDrugsByGeneric(String genericName) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String dbPill = "select * from "
                 + DRUG_DATABASE_TABLE + " where "
-                + KEY_DRUG_BRAND_NAME + " LIKE "
-                + "'%" + pillName + "%'";
+                + KEY_DRUG_GENERIC_NAME + " LIKE "
+                + "'%" + genericName + "%'";
 
         Cursor c = db.rawQuery(dbPill, null);
 
@@ -306,6 +309,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 drug.setDrugPregnancyCategory(c.getString(c.getColumnIndex(KEY_DRUG_PREGNANCY_CATEGORY)));
                 drug.setDrugPrescriptionDetails(c.getString(c.getColumnIndex(KEY_DRUG_PRESCRIPTION_DETAILS)));
                 drug.setDrugSideEffects(c.getString(c.getColumnIndex(KEY_DRUG_SIDE_EFFECTS)));
+                drug.setDrugInteractions(c.getString(c.getColumnIndex(KEY_DRUG_INTERACTIONS)));
                 drug.setDrugWarnings(c.getString(c.getColumnIndex(KEY_DRUG_WARNINGS)));
                 drug.setDrugId(c.getLong(c.getColumnIndex(KEY_ROWID)));
                 drugList.add(drug);
@@ -337,6 +341,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 drug.setDrugPregnancyCategory(c.getString(c.getColumnIndex(KEY_DRUG_PREGNANCY_CATEGORY)));
                 drug.setDrugPrescriptionDetails(c.getString(c.getColumnIndex(KEY_DRUG_PRESCRIPTION_DETAILS)));
                 drug.setDrugSideEffects(c.getString(c.getColumnIndex(KEY_DRUG_SIDE_EFFECTS)));
+                drug.setDrugInteractions(c.getString(c.getColumnIndex(KEY_DRUG_INTERACTIONS)));
                 drug.setDrugWarnings(c.getString(c.getColumnIndex(KEY_DRUG_WARNINGS)));
                 drug.setDrugId(c.getLong(c.getColumnIndex(KEY_ROWID)));
                 drugList.add(drug);

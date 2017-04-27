@@ -13,7 +13,7 @@ public class DrugDatabase {
     public static ArrayList<Drug> drugArrayList = new ArrayList<>();
 
     static {
-        drugArrayList.add(new Drug("Crocin",
+        drugArrayList.add(new Drug("Crocin, Fepanil",
                 "Paracetamol",
                 "This medication is a non-opiate, analgesic and antipyretic, prescribed for headache, pain (muscle ache, backache) and fever either alone or combined with other medications.  It changes the way the body senses pain and cools the body.",
                 "Hypersensitivity",
@@ -24,7 +24,8 @@ public class DrugDatabase {
                         "It should not be used in children with infections such as flu, chickenpox or viral infections. \n" +
                         "Avoid large amount of caffeinated beverages while taking this medication. \n" +
                         "It may reduce platelet counts; avoid injury or bruising. ",
-                "Nausea, stomach upset, skin rash, acute toxicity may result in liver failure. "));
+                "Nausea, stomach upset, skin rash, acute toxicity may result in liver failure. ",
+                "some drugInteractions"));
         drugArrayList.add(new Drug("qwerty",
                 "abcdef",
                 "This medication is prescribed for ....",
@@ -32,7 +33,8 @@ public class DrugDatabase {
                 "B",
                 "0.5-1gm",
                 "Caution",
-                "abc"));
+                "abc",
+                "some drugInteractions"));
         drugArrayList.add(new Drug("asdfgh",
                 "abcdef",
                 "This medication is prescribed for ....",
@@ -40,7 +42,8 @@ public class DrugDatabase {
                 "B",
                 "0.5-1gm",
                 "Caution",
-                "abc"));
+                "abc",
+                "some drugInteractions"));
         drugArrayList.add(new Drug("zcxvb",
                 "fghjsdf",
                 "This medication is prescribed for ....",
@@ -48,7 +51,8 @@ public class DrugDatabase {
                 "B",
                 "0.5-1gm",
                 "Caution",
-                "abc"));
+                "abc",
+                "some drugInteractions"));
         drugArrayList.add(new Drug("piuoyi",
                 "fghjdf",
                 "This medication is prescribed for ....",
@@ -56,7 +60,8 @@ public class DrugDatabase {
                 "B",
                 "0.5-1gm",
                 "Caution",
-                "abc"));
+                "abc",
+                "some drugInteractions"));
         drugArrayList.add(new Drug("wertwert",
                 "sdfgsdfg",
                 "This medication is prescribed for ....",
@@ -64,7 +69,8 @@ public class DrugDatabase {
                 "B",
                 "0.5-1gm",
                 "Caution",
-                "abc"));
+                "abc",
+                "some drugInteractions"));
         drugArrayList.add(new Drug("76586yurtyu",
                 "sdfgsdfg",
                 "This medication is prescribed for ....",
@@ -72,7 +78,8 @@ public class DrugDatabase {
                 "B",
                 "0.5-1gm",
                 "Caution",
-                "abc"));
+                "abc",
+                "some drugInteractions"));
         drugArrayList.add(new Drug("dfuty7fghdf",
                 "fgjdfgj",
                 "This medication is prescribed for ....",
@@ -80,7 +87,8 @@ public class DrugDatabase {
                 "B",
                 "0.5-1gm",
                 "Caution",
-                "abc"));
+                "abc",
+                "some drugInteractions"));
     }
 
 }

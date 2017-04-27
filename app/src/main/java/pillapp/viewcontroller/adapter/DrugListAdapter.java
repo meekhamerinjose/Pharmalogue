@@ -60,8 +60,8 @@ public class DrugListAdapter extends BaseAdapter {
             convertView = infalInflater.inflate(R.layout.item_drug, null);
         }
 
-        TextView name = (TextView) convertView.findViewById(R.id.textView);
-        TextView genericName = (TextView) convertView.findViewById(R.id.textView2);
+        TextView genericName = (TextView) convertView.findViewById(R.id.textView);
+        TextView name = (TextView) convertView.findViewById(R.id.textView2);
 
         name.setText(drug.getDrugBrandName());
         genericName.setText(drug.getDrugGenericName());

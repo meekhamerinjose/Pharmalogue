@@ -17,6 +17,7 @@ public class Drug {
     private String drugDosage;
     private String drugWarnings;
     private String drugSideEffects;
+    private String drugInteractions;
 
     public Drug() {
         this.drugGenericName = "";
@@ -27,6 +28,7 @@ public class Drug {
         this.drugDosage = "";
         this.drugWarnings = "";
         this.drugSideEffects = "";
+        this.drugInteractions = "";
     }
 
     public Drug(String drugBrandName,
@@ -36,7 +38,8 @@ public class Drug {
                 String drugPregnancyCategory,
                 String drugDosage,
                 String drugWarnings,
-                String drugSideEffects) {
+                String drugSideEffects,
+                String drugInteractions) {
         this.drugBrandName = drugBrandName;
         this.drugGenericName = drugGenericName;
         this.drugPrescriptionDetails = drugPrescriptionDetails;
@@ -45,6 +48,7 @@ public class Drug {
         this.drugDosage = drugDosage;
         this.drugWarnings = drugWarnings;
         this.drugSideEffects = drugSideEffects;
+        this.drugInteractions = drugInteractions;
     }
 
     public long getDrugId() {
@@ -119,6 +123,11 @@ public class Drug {
         this.drugSideEffects = drugSideEffects;
     }
 
+    public String getDrugInteractions() {
+        return drugInteractions;
+    }
 
-
+    public void setDrugInteractions(String drugInteractions) {
+        this.drugInteractions = drugInteractions;
+    }
 }
